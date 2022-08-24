@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.iyilmaz.fragmenttutorial4.databinding.FragmentViewBinding
+import com.iyilmaz.fragmenttutorial4.entity.Person
 
 
 class ViewFragment : Fragment() {
@@ -16,10 +17,7 @@ class ViewFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val args: ViewFragmentArgs by navArgs()
-    private var name = ""
-    private var phone = ""
-    private var email = ""
-    private var city = ""
+    private lateinit var person : Person
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,21 +28,18 @@ class ViewFragment : Fragment() {
         binding.button.setOnClickListener {
             findNavController().navigate(R.id.action_veiwFragment_to_editFragment)
         }
+        person = args.person
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        name = args.name
-        phone = args.phone
-        email = args.email
-        city = args.city
 
         binding.apply {
-            tvName.text = name
-            tvPhone.text = phone
-            tvEmail.text = email
-            tvCity.text = city
+            tvName.text = person.name
+            tvPhone.text = person.phone
+            tvEmail.text = person.mail
+            tvCity.text = person.city
 
         }
     }
