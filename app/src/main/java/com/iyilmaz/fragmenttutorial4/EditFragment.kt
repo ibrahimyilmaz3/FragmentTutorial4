@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.iyilmaz.fragmenttutorial4.databinding.FragmentEditBinding
+import com.iyilmaz.fragmenttutorial4.entity.Person
 
 class EditFragment : Fragment() {
     private var _binding: FragmentEditBinding? = null
@@ -29,10 +30,12 @@ class EditFragment : Fragment() {
         binding.apply {
             button2.setOnClickListener {
                 val direction = EditFragmentDirections.actionEditFragmentToVeiwFragment(
+                    Person(
                     etName.text.toString(),
                     etPhone.text.toString(),
                     etEmail.text.toString(),
                     etCity.text.toString()
+                    )
                 )
                 findNavController().navigate(direction)
             }

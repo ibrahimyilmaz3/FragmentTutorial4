@@ -25,16 +25,7 @@
             app:popUpTo="@id/editFragment"
             app:popUpToInclusive="true" />
         <argument
-            android:name="name"
-            app:argType="string" />
-        <argument
-            android:name="phone"
-            app:argType="string" />
-        <argument
-            android:name="email"
-            app:argType="string" />
-        <argument
-            android:name="city"
-            app:argType="string" />
+            android:name="person"
+            app:argType="com.iyilmaz.fragmenttutorial4.entity.Person" />
     </fragment>
 </navigation>
